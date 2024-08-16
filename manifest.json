@@ -1,0 +1,31 @@
+{
+    "name": "YT Video Pauser",
+    "version": "0.0.0.1",
+    "manifest_version": 3,
+    "description": "An extension to pause yt videos automatically when you switch from the video tab.",
+    "icons":{
+        "16":"icons/icon-16X16.png",
+        "32":"icons/icon-32X32.png",
+        "48":"icons/icon-48X48.png",
+        "128":"icons/icon-128X128.png"
+    },
+    "action": {
+        "default_popup": "popup/popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [ "<all_urls>" ],
+            "js": ["content-scripts/script.js"],
+            "run_at":"document_start"
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": ["images/*.png","images/*.jpeg","images/*.jpg"],
+            "matches": ["<all_urls>"]
+        }
+    ],
+    "permissions": [
+        "storage"
+    ]
+}
