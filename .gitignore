@@ -1,0 +1,9 @@
+
+# node junk
+node_modules
+
+# local credentials and env
+.env
+
+# IDE junk
+.vscode
