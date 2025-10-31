@@ -1,8 +1,8 @@
 let pauser = false;
-let video = null;
+let video;
 
 function get_video() {
-  video = document.getElementsByTagName("video")[0];
+  return document.getElementsByTagName("video")[0];
 }
 
 document.addEventListener("visibilitychange", function () {
@@ -17,7 +17,7 @@ document.addEventListener("visibilitychange", function () {
 });
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  get_video();
+  video = get_video();
   switch (request.message) {
     case "start":
       pauser = true;
@@ -30,3 +30,5 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       break;
   }
 });
+
+module.exports = {get_video};
